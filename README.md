@@ -14,11 +14,11 @@ where $P \equiv P(x,t \mid x_0,t_0)$ is the transition density, or propagator, t
 
 In this module, we implement an approximate short-time propagator $P_K(x,t\mid x_0,t_0)$, in both the normalization-preserving representation
 
-$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 D(x_0) \pi \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} \right] \times \left[ 1 +\sum_{k=1}^K \sqrt{\Delta t}^k \mathcal{Q}_k\left(\tilde{x},x_0\right)\right],$$
+$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 \pi D(x_0)  \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} \right] \times \left[ 1 +\sum_{k=1}^K \sqrt{\Delta t}^k \mathcal{Q}_k\left(\tilde{x},x_0\right)\right],$$
 
 and the positivity-preserving representation
 
-$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 D(x_0) \pi \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} + \sum_{k=1}^K \sqrt{\Delta t}^k \hat{\mathcal{Q}}_k\left(\tilde{x},x_0\right)\right].$$
+$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4\pi D(x_0)  \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} + \sum_{k=1}^K \sqrt{\Delta t}^k \hat{\mathcal{Q}}_k\left(\tilde{x},x_0\right)\right].$$
 
 Here, $\Delta x \equiv x - x_0$, $\Delta t = t - t_0$, are the spatial and temporal increments, $\tilde{x} = \Delta x/ \sqrt{ 2 D(x_0) \Delta t}$ is the rescaled spatial increment, and $K \in \mathbb{N}_0$ is the truncation order for the approximate propagator. The explicit form of the coefficients $\mathcal{Q}_k$, $\hat{\mathcal{Q}}_k$, are a main result of Ref. <a href="#ref_1">[1]</a>. The module contains the precalculated coefficients up to $K = 8$ (corresponding to an accuracy $\Delta t^4$ for the propagator), but the module also includes code to calculate the coefficients to even higher order. Note that for a typical spatial increment $\Delta x$, for which the support of the propagator is non-negligible, we have $\tilde{x} \lesssim 1$; this is the reason why the power-series coefficients $\mathcal{Q}_k$, $\hat{\mathcal{Q}}_k$ have $\tilde{x}$ as an argument, see Ref. <a href="#ref_1">[1]</a> for more details.
 
