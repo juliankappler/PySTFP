@@ -1,0 +1,5 @@
+###### Requirements for PySTFP ######
+sympy
+numpy
+h5py
+matplotlib
