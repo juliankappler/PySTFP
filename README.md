@@ -71,7 +71,7 @@ These notebooks allow to reproduce the plots of Ref. <a href="#ref_1">[1]</a>:
 
 ## Installation
 
-PySTFP requires sympy and numpy. To install these requirements as well as PySTFP, you can run the following commands.
+PySTFP requires sympy and numpy, the example notebooks furthermore use matplotlib and h5py. To install these requirements as well as PySTFP, you can run the following commands.
 
 ```bash
 >> git clone https://github.com/juliankappler/PySTFP.git .
