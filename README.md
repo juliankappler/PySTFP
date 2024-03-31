@@ -10,10 +10,7 @@ For a given drift $a(x)$ and diffusivity $D(x)$ we consider the Fokker-Planck eq
 
 $$\partial_t P = - \partial_x \left( a P\right) + \partial_x^2 \left(D P\right),$$
 
-where $P \equiv P(x,t \mid x_0,t_0)$ is the transition density, or propagator, to find a particle that started at time $t_0$ at location $x_0$ at a later time $t$ at a location $x$.
-
-We consider the Fokker-Planck equation on a spatial domain $x \in \mathbb{R} = (-\infty,\infty)$, with boundary conditions $P(x,t\mid x_0, t_0) \rightarrow 0$ as $|x| \rightarrow \infty$,
-and the initial conditions $P(x,t_0\mid x_0, t_0) = \delta (x-x_0)$,  where $\delta$ denotes the Dirac-delta distribution.
+where $P \equiv P(x,t \mid x_0,t_0)$ is the transition density, or propagator, to find a particle that started at time $t_0$ at location $x_0$ at a later time $t$ at a location $x$. This means we consider the initial conditions $P(x,t_0\mid x_0, t_0) = \delta (x-x_0)$,  where $\delta$ denotes the Dirac-delta distribution. As spatial domain we consider $x \in \mathbb{R} = (-\infty,\infty)$, with boundary conditions $P(x,t\mid x_0, t_0) \rightarrow 0$ as $|x| \rightarrow \infty$.
 
 In this module, we implement an approximate short-time propagator $P_K(x,t\mid x_0,t_0)$, in both the normalization-preserving representation
 
