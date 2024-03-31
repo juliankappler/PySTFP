@@ -41,7 +41,7 @@ Here is a list of the notebooks:
 
 These notebooks implement the symbolic derivations of all the perturbative results from Ref. <a href="#ref_1">[1]</a>:
 
-* [perturbative propagators and moments.ipynb](examples/derivations/perturbative%20propagators%20and%20moments.ipynb): 
+* [perturbative propagators and moments.ipynb](https://github.com/juliankappler/PySTFP/blob/main/examples/derivations/perturbative%20propagators%20and%20moments.ipynb): 
 Symbolically evaluate the perturbation series for both the normalization-preserving and positivity-preserving propagator. Additionally, use the normalization-preserving propagator to calculate some moments $\langle \Delta x^k \rangle$.
 * [entropy production rates.ipynb](examples/derivations/entropy%20production%20rates.ipynb): Symbolically calculate the medium entropy production rate, the total entropy production rate, and the Gibbs entropy.
 
