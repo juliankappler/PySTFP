@@ -15,7 +15,7 @@ where $P \equiv P(x,t \mid x_0,t_0)$ is the transition density, or propagator, t
 We consider the Fokker-Planck equation on a spatial domain $x \in \mathbb{R} = (-\infty,\infty)$, with boundary conditions $P(x,t) \rightarrow 0$ as $|x| \rightarrow \infty$,
 and the initial conditions $P(x,t_0\mid x_0, t_0) = \delta (x-x_0)$,  where $\delta$ denotes the Dirac-delta distribution.
 
-In this module, we implement an approximate short-time propagator, in both the normalization-preserving representation
+In this module, we implement an approximate short-time propagator $P_K(x,t\mid x_0,t_0)$, in both the normalization-preserving representation
 
 $$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 D(x_0) \pi \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} \right] \times \left[ 1 +\sum_{k=1}^K \sqrt{\Delta t}^k \mathcal{Q}_k(\Delta x,\Delta t,x_0)\right],$$
 
