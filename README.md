@@ -12,21 +12,20 @@ $$\partial_t P = - \partial_x \left( a P\right) + \partial_x^2 \left(D P\right),
 
 where $P \equiv P(x,t \mid x_0,t_0)$ is the transition density, or propagator, to find a particle that started at time $t_0$ at location $x_0$ at a later time $t$ at a location $x$.
 
-We consider the Fokker-Planck equation on a spatial domain $x \in \mathbb{R} = (-\infty,\infty)$, with boundary conditions $P(x,t) \rightarrow 0$ as $|x| \rightarrow \infty$,
+We consider the Fokker-Planck equation on a spatial domain $x \in \mathbb{R} = (-\infty,\infty)$, with boundary conditions $P(x,t\mid x_0, t_0) \rightarrow 0$ as $|x| \rightarrow \infty$,
 and the initial conditions $P(x,t_0\mid x_0, t_0) = \delta (x-x_0)$,  where $\delta$ denotes the Dirac-delta distribution.
 
 In this module, we implement an approximate short-time propagator $P_K(x,t\mid x_0,t_0)$, in both the normalization-preserving representation
 
-$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 D(x_0) \pi \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} \right] \times \left[ 1 +\sum_{k=1}^K \sqrt{\Delta t}^k \mathcal{Q}_k\left(\frac{\Delta x}{\sqrt{\Delta t}},x_0\right)\right],$$
+$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 D(x_0) \pi \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} \right] \times \left[ 1 +\sum_{k=1}^K \sqrt{\Delta t}^k \mathcal{Q}_k\left(\tilde{x},x_0\right)\right],$$
 
 and the positivity-preserving representation
 
-$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 D(x_0) \pi \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} + \sum_{k=1}^K \sqrt{\Delta t}^k \hat{\mathcal{Q}}_k\left(\frac{\Delta x}{\sqrt{\Delta t}},x_0\right)\right].$$
+$$P_K(x,t \mid x_0 ,t_0) = \frac{1}{\sqrt{ 4 D(x_0) \pi \Delta t}} \exp\left[ - \frac{ \Delta x^2}{4 D(x_0) \Delta t} + \sum_{k=1}^K \sqrt{\Delta t}^k \hat{\mathcal{Q}}_k\left(\tilde{x},x_0\right)\right].$$
 
-In the formulas above, $\Delta x \equiv x - x_0$, $\Delta t = t - t_0$, are the spatial and temporal increments, and $K \in \mathbb{N}_0$ is the truncation order for the approximate propagator. The explicit form of the coefficients $\mathcal{Q}_k$, $\hat{\mathcal{Q}}_k$, are a main result of Ref. <a href="#ref_1">[1]</a>. We have precalculated them up to $K = 8$ (corresponding to an accuracy $\Delta t^4$ for the propagator), but the module also includes code to calculate the coefficients to even higher order. Note that for a typical spatial increment $\Delta x$, for which the support of the propagator is non-negligible, we have $\Delta x /\sqrt{2 D(x_0) \Delta t} \lesssim 1$; this is the reason why the power-series coefficients $\mathcal{Q}_k$, $\hat{\mathcal{Q}}_k$ have $\Delta x/\sqrt{ \Delta t}$ as an argument, see Ref. <a href="#ref_1">[1]</a> for more details.
+Here, $\Delta x \equiv x - x_0$, $\Delta t = t - t_0$, are the spatial and temporal increments, $\tilde{x} = \Delta x/ \sqrt{ 2 D(x_0) \Delta t}$ is the rescaled spatial increment, and $K \in \mathbb{N}_0$ is the truncation order for the approximate propagator. The explicit form of the coefficients $\mathcal{Q}_k$, $\hat{\mathcal{Q}}_k$, are a main result of Ref. <a href="#ref_1">[1]</a>. The module contains the precalculated coefficients up to $K = 8$ (corresponding to an accuracy $\Delta t^4$ for the propagator), but the module also includes code to calculate the coefficients to even higher order. Note that for a typical spatial increment $\Delta x$, for which the support of the propagator is non-negligible, we have $\tilde{x} \lesssim 1$; this is the reason why the power-series coefficients $\mathcal{Q}_k$, $\hat{\mathcal{Q}}_k$ have $\tilde{x}$ as an argument, see Ref. <a href="#ref_1">[1]</a> for more details.
 
-In PySTFP we furthermore implement the explicit perturbation expansions for the 
-first four spatial moments $\langle \Delta x^n \rangle$ ($n = 0, 1, 2, 3, 4$),
+In PySTFP we furthermore implement the explicit perturbation expansions for the spatial moments $\langle \Delta x^n \rangle$ ($n = 0, 1, 2, 3, 4$),
 as well as the medium entropy production rate, the total entropy production rate,
 and the Gibbs entropy. See Ref. <a href="#ref_1">[1]</a> and the examples below for more details.
 
