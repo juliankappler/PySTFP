@@ -1,6 +1,9 @@
 import sympy as sp
 from math import factorial 
 
+# References:
+# [1] "Short-time Fokker-Planck propagator beyond the Gaussian approximation"
+#     J. Kappler. arXiv: http://arxiv.org/abs/2405.18381
 
 epsilon = sp.symbols(r'\epsilon',real=True,positive=True)
 

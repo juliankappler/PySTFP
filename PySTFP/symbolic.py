@@ -17,7 +17,7 @@ Bibliography
 
 [1] Short-time Fokker-Planck propagator beyond the Gaussian approximation,
     Julian Kappler
-	[update once the paper is on the arXiv]
+	arXiv: http://arxiv.org/abs/2405.18381
 
 ''';
 
