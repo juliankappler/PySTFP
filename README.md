@@ -80,3 +80,7 @@ PySTFP requires sympy and numpy, the example notebooks furthermore use matplotli
 ## References
 
 <a id="ref_1">[1] **Short-time Fokker-Planck propagator beyond the Gaussian approximation**. J. Kappler. arXiv: [2405.18381](http://arxiv.org/abs/2405.18381).</a>
+
+## Acknowledgements
+
+We acknowledge funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No 101068745.
